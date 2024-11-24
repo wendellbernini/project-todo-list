@@ -19,4 +19,13 @@ function removerTarefaDOM() {
   });
 }
 
-export { adicionarTarefaDOM, removerTarefaDOM };
+function coletarInputs() {
+  const caixaInputs = document.querySelector(".caixaModal");
+  if (!caixaInputs) {
+    console.log("Caixa inputs nao encontrada");
+  } else {
+    console.log(caixaInputs);
+  }
+}
+
+export { adicionarTarefaDOM, removerTarefaDOM, coletarInputs };

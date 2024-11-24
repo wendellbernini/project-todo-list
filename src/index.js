@@ -25,6 +25,14 @@ adicionarTarefa(tarefa2);
 // removerTarefa(0);
 console.log(getTarefas());
 
-import { adicionarTarefaDOM, removerTarefaDOM } from "./modules/ui/events";
+import {
+  adicionarTarefaDOM,
+  removerTarefaDOM,
+  coletarInputs,
+} from "./modules/ui/events";
 adicionarTarefaDOM();
 removerTarefaDOM();
+
+import { UImodalAdicionarTarefa } from "./modules/ui/modal";
+UImodalAdicionarTarefa();
+coletarInputs();
