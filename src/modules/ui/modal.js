@@ -1,4 +1,8 @@
-const UImodalAdicionarTarefa = () => {
+import { adicionarTarefa, getTarefas } from "../tasks/taskManager";
+import { renderTarefas } from "../tasks/renderTasks";
+import { exibirTarefasAtivas } from "../../utils/helpers";
+
+const modalCriarInterface = () => {
   const root = document.querySelector("#root");
   const caixaModal = document.createElement("div");
   caixaModal.classList.add("caixaModal");
@@ -11,13 +15,27 @@ const UImodalAdicionarTarefa = () => {
   root.appendChild(caixaModal);
 };
 
-function modalEventos() {
-  const caixaInputs = document.querySelector(".caixaModal");
-  if (!caixaInputs) {
-    console.log("Caixa inputs nao encontrada");
-  } else {
-    console.log(caixaInputs);
-  }
+function modalCriarObjetoTarefa() {
+  const inputTitulo = document.querySelector("#inputTitulo");
+  const inputDescricao = document.querySelector("#inputDescricao");
+  const inputPrioridade = document.querySelector("#inputPrioridade");
+  const inputData = document.querySelector("#inputData");
+  const tarefa = {
+    titulo: inputTitulo.value,
+    descricao: inputDescricao.value,
+    prioridade: inputPrioridade.value,
+    data: inputData.value,
+  };
+  return tarefa;
 }
 
-export { UImodalAdicionarTarefa, modalEventos };
+function modalBotaoEnviar() {
+  const botaoEnviar = document.querySelector("#botaoEnviar");
+
+  botaoEnviar.addEventListener("click", () => {
+    adicionarTarefa(modalCriarObjetoTarefa());
+    exibirTarefasAtivas();
+  });
+}
+
+export { modalCriarInterface, modalCriarObjetoTarefa, modalBotaoEnviar };

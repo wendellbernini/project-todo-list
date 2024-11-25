@@ -14,18 +14,9 @@ function removerTarefaDOM() {
   caixaListaTarefas.addEventListener("click", () => {
     const tarefaElemento = event.target.closest(".tarefa-item");
     if (tarefaElemento) {
-      tarefaElemento.remove(); // Remove a tarefa do DOM
+      tarefaElemento.remove();
     }
   });
 }
 
-function coletarInputs() {
-  const caixaInputs = document.querySelector(".caixaModal");
-  if (!caixaInputs) {
-    console.log("Caixa inputs nao encontrada");
-  } else {
-    console.log(caixaInputs);
-  }
-}
-
-export { adicionarTarefaDOM, removerTarefaDOM, coletarInputs };
+export { adicionarTarefaDOM, removerTarefaDOM };

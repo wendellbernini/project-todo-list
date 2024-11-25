@@ -4,7 +4,7 @@ const renderHomePage = () => {
     <button id="botaoAbrirModal">Abrir modal de adicionar tarefa</button>
     <div>//modal de adicionar tarefa//</div>
     <h1>Hoje</h1>
-    <p>"X" tarefas ativas</p>
+    <p id="qntTarefasAtivas">"X" tarefas ativas</p>
     <div id="caixaDeTarefas">//div de tarefas//</div>
     `;
 };

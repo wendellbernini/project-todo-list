@@ -33,6 +33,13 @@ import {
 adicionarTarefaDOM();
 removerTarefaDOM();
 
-import { UImodalAdicionarTarefa } from "./modules/ui/modal";
-UImodalAdicionarTarefa();
-coletarInputs();
+import {
+  modalCriarInterface,
+  modalCriarObjetoTarefa,
+  modalBotaoEnviar,
+} from "./modules/ui/modal";
+modalCriarInterface();
+modalCriarObjetoTarefa();
+modalBotaoEnviar();
+import { exibirTarefasAtivas } from "./utils/helpers";
+exibirTarefasAtivas();
