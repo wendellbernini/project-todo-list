@@ -5,7 +5,7 @@ const renderHomePage = () => {
     <div>//modal de adicionar tarefa//</div>
     <h1>Hoje</h1>
     <p id="qntTarefasAtivas">"X" tarefas ativas</p>
-    <div id="caixaDeTarefas">//div de tarefas//</div>
+    <div id="divDeTarefas">//div de tarefas//</div>
     `;
 };
 

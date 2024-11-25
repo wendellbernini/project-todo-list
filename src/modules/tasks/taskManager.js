@@ -14,9 +14,7 @@ function adicionarTarefa({ titulo, descricao, prioridade, data }) {
   return novaTarefa;
 }
 
-function removerTarefa(index) {
-  tarefas.splice(index, 1);
-}
+function removerTarefa(id) {}
 
 const getTarefas = () => tarefas;
 

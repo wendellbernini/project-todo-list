@@ -1,22 +1,16 @@
 import { renderTarefas } from "../tasks/renderTasks";
-import { getTarefas } from "../tasks/taskManager";
-
-function adicionarTarefaDOM() {
-  const botaoAdicionarTarefa = document.querySelector("#botaoAbrirModal"); //temporariamente ta no de abrir modal
-  botaoAdicionarTarefa.addEventListener("click", () => {
-    const tarefas = getTarefas();
-    renderTarefas(tarefas);
-  });
-}
+import { getTarefas, removerTarefa } from "../tasks/taskManager";
 
 function removerTarefaDOM() {
-  const caixaListaTarefas = document.querySelector("#caixaDeTarefas");
+  const caixaListaTarefas = document.querySelector("#divDeTarefas");
   caixaListaTarefas.addEventListener("click", () => {
     const tarefaElemento = event.target.closest(".tarefa-item");
     if (tarefaElemento) {
       tarefaElemento.remove();
+      removerTarefa();
+      console.log(getTarefas());
     }
   });
 }
 
-export { adicionarTarefaDOM, removerTarefaDOM };
+export { removerTarefaDOM };

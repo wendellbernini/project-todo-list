@@ -5,6 +5,7 @@ import { exibirTarefasAtivas } from "../../utils/helpers";
 const modalCriarInterface = () => {
   const root = document.querySelector("#root");
   const caixaModal = document.createElement("div");
+  const divDeTarefas = document.querySelector("#divDeTarefas");
   caixaModal.classList.add("caixaModal");
   caixaModal.innerHTML = ` <input type="text" id="inputTitulo" placeholder="titulo"></br>
                             <input type="text" id="inputDescricao" placeholder="descricao"></br>
@@ -12,7 +13,9 @@ const modalCriarInterface = () => {
                             <input type="text" id="inputData" placeholder="data"></br>
                             <button id="botaoEnviar">enviar</button>
                             `;
-  root.appendChild(caixaModal);
+  divDeTarefas.appendChild(caixaModal);
+  modalCriarObjetoTarefa();
+  modalBotaoEnviar();
 };
 
 function modalCriarObjetoTarefa() {
@@ -35,7 +38,22 @@ function modalBotaoEnviar() {
   botaoEnviar.addEventListener("click", () => {
     adicionarTarefa(modalCriarObjetoTarefa());
     exibirTarefasAtivas();
+    const tarefas = getTarefas();
+    renderTarefas(tarefas);
+    console.log(tarefas);
   });
 }
 
-export { modalCriarInterface, modalCriarObjetoTarefa, modalBotaoEnviar };
+function abrirModal() {
+  const botaoAbrirModal = document.querySelector("#botaoAbrirModal");
+  botaoAbrirModal.addEventListener("click", () => {
+    modalCriarInterface();
+  });
+}
+
+export {
+  modalCriarInterface,
+  modalCriarObjetoTarefa,
+  modalBotaoEnviar,
+  abrirModal,
+};
