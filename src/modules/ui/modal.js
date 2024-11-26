@@ -1,16 +1,19 @@
 import { adicionarTarefa, getTarefas } from "../tasks/taskManager";
 import { renderTarefas } from "../tasks/renderTasks";
 import { exibirTarefasAtivas } from "../../utils/helpers";
+import {
+  eventoDeClick,
+  getEventoSelecionarPrioridade,
+} from "./modalPrioridades";
 
 const modalCriarInterface = () => {
-  const root = document.querySelector("#root");
   const caixaModal = document.createElement("div");
   const divDeTarefas = document.querySelector("#divDeTarefas");
   caixaModal.classList.add("caixaModal");
   caixaModal.innerHTML = ` <input type="text" id="inputTitulo" placeholder="titulo"></br>
                             <input type="text" id="inputDescricao" placeholder="descricao"></br>
-                            <input type="text" id="inputPrioridade" placeholder="prioridade"></br>
-                            <input type="text" id="inputData" placeholder="data"></br>
+                            <input type="button" id="inputPrioridade" placeholder="prioridade" value="prioridades"></br>
+                            <input type="date" id="inputData" placeholder="data"></br>
                             <button id="botaoEnviar">enviar</button>
                             `;
   divDeTarefas.appendChild(caixaModal);
@@ -26,9 +29,10 @@ function modalCriarObjetoTarefa() {
   const tarefa = {
     titulo: inputTitulo.value,
     descricao: inputDescricao.value,
-    prioridade: inputPrioridade.value,
+    prioridade: getEventoSelecionarPrioridade(),
     data: inputData.value,
   };
+  console.log(tarefa.prioridade);
   return tarefa;
 }
 
@@ -47,7 +51,12 @@ function modalBotaoEnviar() {
 function abrirModal() {
   const botaoAbrirModal = document.querySelector("#botaoAbrirModal");
   botaoAbrirModal.addEventListener("click", () => {
+    const caixaModal = document.querySelector(".caixaModal");
+    if (caixaModal) {
+      return;
+    }
     modalCriarInterface();
+    eventoDeClick();
   });
 }
 

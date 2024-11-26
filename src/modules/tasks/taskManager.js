@@ -14,7 +14,12 @@ function adicionarTarefa({ titulo, descricao, prioridade, data }) {
   return novaTarefa;
 }
 
-function removerTarefa(id) {}
+function removerTarefa(id) {
+  const indice = tarefas.findIndex((tarefa) => tarefa.id === id);
+  if (indice !== -1) {
+    tarefas.splice(indice, 1); // Remove a tarefa do array
+  }
+}
 
 const getTarefas = () => tarefas;
 
