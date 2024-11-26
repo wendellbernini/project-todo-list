@@ -5,15 +5,19 @@ import {
   eventoDeClick,
   getEventoSelecionarPrioridade,
 } from "./modalPrioridades";
-
+import {
+  eventoDeClickProjeto,
+  getEventoSelecionarProjeto,
+} from "./modalProjetos";
 const modalCriarInterface = () => {
   const caixaModal = document.createElement("div");
   const divDeTarefas = document.querySelector("#divDeTarefas");
   caixaModal.classList.add("caixaModal");
   caixaModal.innerHTML = ` <input type="text" id="inputTitulo" placeholder="titulo"></br>
                             <input type="text" id="inputDescricao" placeholder="descricao"></br>
-                            <input type="button" id="inputPrioridade" placeholder="prioridade" value="prioridades"></br>
+                            <input type="button" id="inputPrioridade"value="prioridades"></br>
                             <input type="date" id="inputData" placeholder="data"></br>
+                            <input type="button" id="inputProjetos"value="projetos"></br>
                             <button id="botaoEnviar">enviar</button>
                             `;
   divDeTarefas.appendChild(caixaModal);
@@ -24,15 +28,24 @@ const modalCriarInterface = () => {
 function modalCriarObjetoTarefa() {
   const inputTitulo = document.querySelector("#inputTitulo");
   const inputDescricao = document.querySelector("#inputDescricao");
-  const inputPrioridade = document.querySelector("#inputPrioridade");
   const inputData = document.querySelector("#inputData");
+  const inputPrioridade = getEventoSelecionarPrioridade(); // Atualiza a prioridade
+  const inputProjetos = getEventoSelecionarProjeto(); // Atualiza o projeto selecionado
+
+  if (!inputProjetos) {
+    console.error("Nenhum projeto foi selecionado.");
+    return null; // Retorna nulo se o projeto não foi selecionado
+  }
+
   const tarefa = {
-    titulo: inputTitulo.value,
-    descricao: inputDescricao.value,
-    prioridade: getEventoSelecionarPrioridade(),
-    data: inputData.value,
+    titulo: inputTitulo.value || "Sem título",
+    descricao: inputDescricao.value || "Sem descrição",
+    prioridade: inputPrioridade || "Sem prioridade",
+    data: inputData.value || "Sem data",
+    projetos: inputProjetos,
   };
-  console.log(tarefa.prioridade);
+
+  console.log("Tarefa criada:", tarefa);
   return tarefa;
 }
 
@@ -57,6 +70,7 @@ function abrirModal() {
     }
     modalCriarInterface();
     eventoDeClick();
+    eventoDeClickProjeto();
   });
 }
 

@@ -19,5 +19,5 @@ import {
   abrirModal,
 } from "./modules/ui/modal";
 abrirModal();
-import { exibirTarefasAtivas } from "./utils/helpers";
+import { exibirTarefasAtivas, ver } from "./utils/helpers";
 exibirTarefasAtivas();

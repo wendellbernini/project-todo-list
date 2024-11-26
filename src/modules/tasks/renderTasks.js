@@ -7,8 +7,10 @@ const renderTarefas = (tarefas) => {
     <p>${tarefa.descricao}</p>
     <p>${tarefa.prioridade}</p>
     <p>${tarefa.data}</p>
+    <p>${tarefa.projetos}</p>
     <button data-id=${tarefa.id}>Deletar</button>`;
     caixaDeTarefa.classList.add("tarefa-item");
+    console.log(`ESSE: ${tarefa.prioridade}`);
     caixaListaTarefas.appendChild(caixaDeTarefa);
   });
 };
