@@ -10,7 +10,7 @@ const renderTarefas = (tarefas) => {
     <p>${tarefa.projetos}</p>
     <button data-id=${tarefa.id}>Deletar</button>`;
     caixaDeTarefa.classList.add("tarefa-item");
-    console.log(`ESSE: ${tarefa.prioridade}`);
+    console.log(`ESSE: ${tarefa.projetos}`);
     caixaListaTarefas.appendChild(caixaDeTarefa);
   });
 };

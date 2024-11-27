@@ -1,12 +1,13 @@
 const tarefas = [];
 
-function adicionarTarefa({ titulo, descricao, prioridade, data }) {
+function adicionarTarefa({ titulo, descricao, prioridade, data, projetos }) {
   const novaTarefa = {
     id: Date.now(),
     titulo,
     descricao,
     prioridade,
     data,
+    projetos,
     concluida: false,
   };
 
