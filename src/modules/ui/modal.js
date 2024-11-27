@@ -51,7 +51,6 @@ function modalCriarObjetoTarefa() {
 
 function modalBotaoEnviar() {
   const botaoEnviar = document.querySelector("#botaoEnviar");
-
   botaoEnviar.addEventListener("click", () => {
     adicionarTarefa(modalCriarObjetoTarefa());
     exibirTarefasAtivas();
