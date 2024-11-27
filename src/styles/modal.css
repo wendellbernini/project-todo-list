@@ -1,0 +1,11 @@
+#inputTitulo,
+#inputDescricao {
+  border: none;
+}
+#inputTitulo {
+  font-size: 18px;
+}
+
+#inputDescricao {
+  font-size: 14px;
+}

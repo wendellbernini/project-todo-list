@@ -22,3 +22,4 @@ abrirModal();
 import { exibirTarefasAtivas, ver } from "./utils/helpers";
 exibirTarefasAtivas();
 import "./styles/main.css";
+import "./styles/modal.css";

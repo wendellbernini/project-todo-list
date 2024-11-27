@@ -9,16 +9,18 @@ import {
   eventoDeClickProjeto,
   getEventoSelecionarProjeto,
 } from "./modalProjetos";
+
 const modalCriarInterface = () => {
   const caixaModal = document.createElement("div");
   const divDeTarefas = document.querySelector("#divDeTarefas");
   caixaModal.classList.add("caixaModal");
-  caixaModal.innerHTML = ` <input type="text" id="inputTitulo" placeholder="titulo"></br>
-                            <input type="text" id="inputDescricao" placeholder="descricao"></br>
+  caixaModal.innerHTML = ` <input type="text" id="inputTitulo" placeholder="Nome da tarefa"></br>
+                            <input type="text" id="inputDescricao" placeholder="Descrição"></br>
                             <input type="button" id="inputPrioridade"value="prioridades"></br>
                             <input type="date" id="inputData" placeholder="data"></br>
                             <input type="button" id="inputProjetos"value="projetos"></br>
                             <button id="botaoEnviar">enviar</button>
+                            <button id="botaoFechar">cancelar</button>
                             `;
   divDeTarefas.appendChild(caixaModal);
   modalCriarObjetoTarefa();
@@ -70,6 +72,19 @@ function abrirModal() {
     modalCriarInterface();
     eventoDeClick();
     eventoDeClickProjeto();
+    botaofecharModal();
+  });
+}
+
+function botaofecharModal() {
+  const botaoFechar = document.querySelector("#botaoFechar");
+
+  botaoFechar.addEventListener("click", () => {
+    const caixaModal = document.querySelector(".caixaModal");
+    if (caixaModal) {
+      caixaModal.remove();
+      return;
+    }
   });
 }
 
